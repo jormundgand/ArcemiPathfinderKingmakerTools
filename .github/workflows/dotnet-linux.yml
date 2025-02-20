@@ -14,7 +14,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ghcr.io/electron/build:arm64v8-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
       working-directory: ./Arcemi.SaveGameEditor
       run: electronize build /target linux /PublishReadyToRun false
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Arcemi-SaveGameEditor-Linux
         path: ./Arcemi.SaveGameEditor/bin/Desktop/Arcemi Save Game Editor-*.AppImage
